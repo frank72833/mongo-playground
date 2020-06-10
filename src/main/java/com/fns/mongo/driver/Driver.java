@@ -1,6 +1,5 @@
-package com.fns.mongo.car;
+package com.fns.mongo.driver;
 
-import com.fns.mongo.engine.Engine;
 import lombok.AllArgsConstructor;
 import lombok.Builder;
 import lombok.Data;
@@ -8,17 +7,15 @@ import lombok.NoArgsConstructor;
 import org.springframework.data.annotation.Id;
 import org.springframework.data.mongodb.core.mapping.Document;
 
-@Data
 @AllArgsConstructor
 @NoArgsConstructor
 @Builder
+@Data
 @Document
-public class Car {
+public class Driver {
     @Id
-    private String license;
-    private String make;
-    private String model;
-    private Engine engine;
-
+    private String id;
+    private String name;
+    private String category;
     private String teamId;
 }

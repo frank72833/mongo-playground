@@ -2,7 +2,6 @@ package com.fns.mongo.car.rest.v1;
 
 import com.fns.mongo.car.Car;
 import com.fns.mongo.car.mapper.CarMapper;
-import com.fns.mongo.car.rest.v1.request.CarRequest;
 import com.fns.mongo.car.serviceprovider.CarServiceProvider;
 import lombok.extern.slf4j.Slf4j;
 import org.springframework.beans.factory.annotation.Autowired;
@@ -10,8 +9,6 @@ import org.springframework.http.HttpStatus;
 import org.springframework.http.MediaType;
 import org.springframework.web.bind.annotation.GetMapping;
 import org.springframework.web.bind.annotation.PathVariable;
-import org.springframework.web.bind.annotation.PostMapping;
-import org.springframework.web.bind.annotation.RequestBody;
 import org.springframework.web.bind.annotation.RequestMapping;
 import org.springframework.web.bind.annotation.RestController;
 import org.springframework.web.server.ResponseStatusException;
@@ -22,17 +19,10 @@ import org.springframework.web.server.ResponseStatusException;
 public class CarsResource {
 
     private final CarServiceProvider carServiceProvider;
-    private final CarMapper carMapper;
 
     @Autowired
     public CarsResource(CarServiceProvider carServiceProvider, CarMapper carMapper) {
         this.carServiceProvider = carServiceProvider;
-        this.carMapper = carMapper;
-    }
-
-    @PostMapping
-    public Car createCar(@RequestBody CarRequest request) {
-        return carServiceProvider.createCar(carMapper.carRequestToCar(request));
     }
 
     @GetMapping("/{license}")
