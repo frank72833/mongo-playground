@@ -7,6 +7,6 @@ import org.springframework.stereotype.Repository;
 import java.util.List;
 
 @Repository
-public interface CarRepository extends MongoRepository<Car, String> {
+public interface CarRepository extends MongoRepository<Car, String>, CustomizedCarRepository {
     List<Car> findByTeamId(String teamId);
 }

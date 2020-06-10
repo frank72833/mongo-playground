@@ -26,6 +26,7 @@ public class CarServiceProvider {
 
     public Car createCar(Car car) {
         log.info("createCar: {}", car);
+
         return carRepository.insert(car);
     }
 
