@@ -14,6 +14,8 @@ import org.springframework.data.mongodb.core.mapping.Document;
 @Builder
 @Document
 public class Car {
+    public static final String ID = "license";
+
     @Id
     private String license;
     private String make;
